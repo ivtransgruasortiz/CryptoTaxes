@@ -18,9 +18,9 @@ df_1[['Qty.', 'Price']] = df_1[['Qty.', 'Price']].astype('float')
 df_1['Fee'] = df_1['Fee'].str.split(expand=True)[0].astype('float')
 df_1['Total'] = df_1['Total'].replace(' ', '', regex=True).str.split('EUR', expand=True)[0].astype('float')
 df_1 = df_1.sort_values(by='Date')
-valor_residual_cartera = 6700 # eur en cartera coinbase en momento calculo 31 diciembre por ejemplo
+valor_residual_cartera = 6200  # eur en cartera coinbase en momento calculo 31 diciembre por ejemplo
 valor_beneficios_declaracion = df_1['Total'].sum() + valor_residual_cartera
-
+df_1.to_excel('./mov.xlsx')
 # df1 = [x.columns[1:] for x in df]
 # df1_df = pd.DataFrame(df1)
 # df2_df = df1_df.sort_values(0)
